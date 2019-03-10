@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <form  method="post">
+
+        <label>Name</label>
+        <input asp-for="ProductViewModel.Name" />
+        <label>Description</label>
+        <input asp-for="ProductViewModel.Description" />
+        <label>Value</label>
+        <input asp-for="ProductViewModel.Value" />
+        <button type="submit" class="btn btn-primary">Save Product.</button>
+
+    </form>
+</div>
+<div>
+    <h1>Products</h1>
+    <hr />
+    @{ 
+        foreach (var p in Model.ProductList)
+        {
+        <p>
+            @p.Name - @p.Description - £ @p.Value
+        </p>
+        } 
+    }
+</div>
