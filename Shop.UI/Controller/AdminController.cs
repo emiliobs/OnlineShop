@@ -21,7 +21,7 @@
         [HttpGet("products/{Id}")]
         public IActionResult GetProduct(int id) => Ok(new GetProduct(context).Do(id));
 
-        [HttpPost("products)]
+        [HttpPost("products")]
         public IActionResult CreateProducts(ProductViewModel productViewModel) => Ok(new CreateProduct(context).Do(productViewModel));
 
         [HttpPut("products")]
