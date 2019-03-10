@@ -1,4 +1,4 @@
-﻿namespace Shop.Application.Products
+﻿namespace Shop.Application.ProductAdmin
 {
     using Shop.Database;
     using Shop.Domain.ViewModels;
@@ -15,10 +15,11 @@
 
         public IEnumerable<ProductViewModel> Do() => context.Products.ToList().Select(p => new ProductViewModel()
         {
-          Description = p.Description,
-           Name = p.Name,
-           Value = p.Value
+             Id = p.Id,
+            Description = p.Description,
+            Name = p.Name,
+            Value = p.Value
         });
-        
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Shop.Application.Products
+﻿namespace Shop.Application.ProductAdmin
 {
     using Shop.Database;
     using Shop.Domain.Models;

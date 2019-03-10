@@ -2,12 +2,10 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
-    using Shop.Application.Products;
+    using Shop.Application.ProductAdmin;
     using Shop.Database;
     using Shop.Domain.ViewModels;
-    using System.Collections;
     using System.Collections.Generic;
-    using System.Threading.Tasks;
 
     public class IndexModel : PageModel
     {
@@ -36,18 +34,18 @@
         #region Methods
         public void OnGet()
         {
-             ProductList = new GetProducts(context).Do();
+            ProductList = new GetProducts(context).Do();
 
         }
 
-      
 
-        public async Task<ActionResult> OnPost()
-        {
-            await new CreateProduct(context).Do(ProductViewModel);
 
-            return RedirectToPage("Index");
-        }
+        //public async Task<ActionResult> OnPost()
+        //{
+        //    await new CreateProduct(context).Do(ProductViewModel);
+
+        //    return RedirectToPage("Index");
+        //}
         #endregion
     }
 }
