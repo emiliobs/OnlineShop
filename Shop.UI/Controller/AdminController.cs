@@ -4,6 +4,7 @@
     using Shop.Application.ProductAdmin;
     using Shop.Database;
     using Shop.Domain.ViewModels;
+    using System.Threading.Tasks;
 
     [Route("[controller]")]
     public class AdminController : Controller
@@ -22,12 +23,12 @@
         public IActionResult GetProduct(int id) => Ok(new GetProduct(context).Do(id));
 
         [HttpPost("products")]
-        public IActionResult CreateProducts(ProductViewModel productViewModel) => Ok(new CreateProduct(context).Do(productViewModel));
+        public async Task<IActionResult> CreateProducts([FromBody] RequestProductViewModel productViewModel) => Ok(await new CreateProduct(context).Do(productViewModel));
 
         [HttpPut("products")]
-        public IActionResult UpdateProduct(ProductViewModel productViewModel) => Ok(new UpdateProduct(context).Do(productViewModel));
+        public async Task<IActionResult> UpdateProduct([FromBody] RequestProductViewModel productViewModel) => Ok(await new UpdateProduct(context).Do(productViewModel));
 
         [HttpDelete("products/{id}")]
-        public IActionResult DeleteProduct(int id) => Ok(new DeleteProduct(context).Do(id));
+        public async Task<IActionResult> DeleteProduct(int id) => Ok(await new DeleteProduct(context).Do(id));
     }
 }

@@ -16,11 +16,13 @@
             this.context = context;
         }
 
-        public async Task Do(int id)
+        public async Task<bool> Do(int id)
         {
             var product = context.Products.FirstOrDefault(p => p.Id.Equals(id));
             context.Products.Remove(product);
             await context.SaveChangesAsync();
+
+            return true;
         }
     }
 }

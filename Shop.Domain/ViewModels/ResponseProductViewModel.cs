@@ -1,17 +1,14 @@
 ﻿namespace Shop.Domain.ViewModels
 {
-    using Shop.Domain.Models;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+    using System.Text;
 
-    public class RequestProductViewModel
+    public class ResponseProductViewModel
     {
-       
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Value { get; set; }
-
     }
 }

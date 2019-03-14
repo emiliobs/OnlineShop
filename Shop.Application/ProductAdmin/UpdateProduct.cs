@@ -13,9 +13,11 @@
             this.context = context;
         }
 
-        public async Task Do(ProductViewModel productViewModel)
+        public async Task<ResponseProductViewModel> Do(RequestProductViewModel productViewModel)
         {
             await context.SaveChangesAsync();
+
+            return new ResponseProductViewModel();
         }
 
     }

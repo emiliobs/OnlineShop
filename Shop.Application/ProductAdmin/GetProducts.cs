@@ -13,9 +13,9 @@
             this.context = context;
         }
 
-        public IEnumerable<ProductViewModel> Do() => context.Products.ToList().Select(p => new ProductViewModel()
+        public IEnumerable<RequestProductViewModel> Do() => context.Products.ToList().Select(p => new RequestProductViewModel()
         {
-             Id = p.Id,
+           
             Description = p.Description,
             Name = p.Name,
             Value = p.Value

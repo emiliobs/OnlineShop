@@ -16,17 +16,26 @@
             this.context = context;
         }
 
-        public async Task Do(ProductViewModel productViewModel)
+        public async Task<ResponseProductViewModel> Do(RequestProductViewModel requestProductViewModel)
         {
-            context.Products.Add(new Product()
+
+            var product = new Product
             {
+                Description = requestProductViewModel.Description,
+                Name = requestProductViewModel.Name,
+                Value = requestProductViewModel.Value,
+            };
 
-                Description = productViewModel.Description,
-                Name = productViewModel.Name,
-                Value = productViewModel.Value,
-            });
-
+            context.Products.Add(product);
             await context.SaveChangesAsync();
+
+            return  new ResponseProductViewModel()
+            {
+                Description = product.Description,
+                Name = product.Name,
+                Value = product.Value,
+                 Id = product.Id,
+            };
         }
 
     }

@@ -4,23 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
-    <div id="app">
-        <input type="number" @@change="alert('Hello Emilio from Vue...')" v-model="price" />
-        <button v-on:click="togglePrice">Toggle</button>
-        <p v-show="showPrice">
+<div id="app">
+    <button v-on:click="GetProducts">Get Products.</button>
 
-            {{ price }}
+    <h1>Product List.</h1>
+    <hr />
 
+    <div>
+        <p v-for="product in products">
+            {{product.id}} - {{product.name}} - {{product.description}} - {{product.value}}
         </p>
-        <p v-show="showPrice">
-
-            £ {{  formatPrice }}
-
-        </p>
-
     </div>
+    <hr />
+    <h1>Create Porduct.</h1>
+    <hr />
+    <div>
+        <input v-model="productModel.name" />
+        <input v-model="productModel.description" />
+        <input v-model="productModel.value" />
+        <button @@click="CreateProducts">Create Product.</button>
+    </div>
+    <hr />
 
-@section scripts{ 
+</div>
+
+@section scripts{
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="~/js/Admin/main.js"></script>
 }

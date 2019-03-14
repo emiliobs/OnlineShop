@@ -15,13 +15,11 @@
         }
 
 
-        public ProductViewModel Do(int Id) => context.Products.Where(p => p.Id.Equals(Id)).Select(p => new ProductViewModel()
+        public RequestProductViewModel Do(int Id) => context.Products.Where(p => p.Id.Equals(Id)).Select(p => new RequestProductViewModel()
         {
-            Id = p.Id,
+           
             Description = p.Description,
-            Name = p.Name,
-            OrderProducts =p.OrderProducts,
-            Stocks = p.Stocks,
+            Name = p.Name,            
             Value = p.Value,
         }).FirstOrDefault();
        

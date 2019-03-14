@@ -17,8 +17,8 @@
         #region Properties
 
         [BindProperty]
-        public ProductViewModel ProductViewModel { get; set; }
-        public IEnumerable<ProductViewModel> ProductList { get; set; }
+        public RequestProductViewModel ProductViewModel { get; set; }
+        public IEnumerable<RequestProductViewModel> ProductList { get; set; }
 
         #endregion
 
